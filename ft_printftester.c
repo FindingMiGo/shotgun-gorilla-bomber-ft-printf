@@ -1,5 +1,5 @@
 #include<stdio.h>
-#include"ft_printf.h"
+#include"../ft_printf.h"
 #include<string.h>
 
 static char	g_num[10];
