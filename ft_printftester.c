@@ -280,7 +280,7 @@ void	ft_printf_tester(char *fmt, int flg)
 	while (i < (sizeof(tests)/sizeof(char*)))
 		ft_printf_tester_str(fmt, tests[i++], flg);
 	i = 0;
-	while (i < (sizeof(testu)/sizeof(unsigned int)))
+	while (i < (sizeof(testu)/sizeof(long long)))
 		ft_printf_tester_u(fmt, testu[i++], flg);
 	free(fmt);
 }
