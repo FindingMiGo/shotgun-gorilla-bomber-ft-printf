@@ -23,6 +23,19 @@ char	*str_join(const char* s1, const char* s2)
 	return (p);
 }
 
+char	*str_dup(const char* s)
+{
+	size_t len;
+
+	if (!s)
+		return (NULL);
+	len = strlen(s);
+	char	*p = malloc(len + 1);
+	memcpy(p, s, len);
+	p[len] = 0;
+	return (p);
+}
+
 void	ft_printf_tester_int(char *fmt, int d, int flg)
 {
 	char *tmp;
@@ -308,7 +321,7 @@ void	ft_printf_combn_rec(int	n, int	depth, int	val, int flg)
 		g_num[n] = 0;
 		ft_printf_tester(str_join("%", g_num), flg);
 		if (n == 1 && val == (int)strlen(flag))
-			ft_printf_tester(ft_strdup("%"), flg);
+			ft_printf_tester(str_dup("%"), flg);
 		return ;
 	}
 	while (val <= 4)
