@@ -1,6 +1,6 @@
 #!/bin/sh
 
-gcc -Wall -Wextra -Werror ft_printftester.c ../libftprintf.a
+gcc -Wall -Wextra -Werror ft_printf_tester.c ../libftprintf.a
 mkdir -p out
 ./a.out > out/printf
 ./a.out 1 > out/ft_printf
