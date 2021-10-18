@@ -1,6 +1,7 @@
 #include<stdio.h>
-#include"../ft_printf.h"
+#include<limits.h>
 #include<string.h>
+#include"../ft_printf.h"
 
 static char	g_num[10];
 char		*flag = "#0+ -";
