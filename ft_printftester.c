@@ -7,6 +7,22 @@ char		*flag = "#0+ -";
 char		acc[6][4] = { "" , "." , ".0" , ".1", ".10", ".15"};
 char		fld[5][3] = { "" , "0" , "1", "10", "15"};
 
+char	*str_join(const char* s1, const char* s2)
+{
+	size_t len1;
+	size_t len2;
+
+	if (!s1 || !s2)
+		return (NULL);
+	len1 = strlen(s1);
+	len2 = strlen(s2);
+	char	*p = malloc(len1 + len2 + 1);
+	memcpy(p, s1, len1);
+	memcpy(p + len1, s2, len2 + 1);
+	p[len1 + len2] = 0;
+	return (p);
+}
+
 void	ft_printf_tester_int(char *fmt, int d, int flg)
 {
 	char *tmp;
@@ -18,11 +34,11 @@ void	ft_printf_tester_int(char *fmt, int d, int flg)
 
 	while (i < 6)
 	{
-		tmp = ft_strjoin(fmt, fld[i]);
+		tmp = str_join(fmt, fld[i]);
 		while(j < 5)
 		{
-			tmp2 = ft_strjoin(tmp, acc[j]);
-			fmt_d = ft_strjoin(tmp2, "d");
+			tmp2 = str_join(tmp, acc[j]);
+			fmt_d = str_join(tmp2, "d");
 			free(tmp2);
 			printf("%s[d = %d],\t", fmt_d, d);
 			fflush(stdout);
@@ -53,11 +69,11 @@ void	ft_printf_tester_char(char *fmt, char c, int flg)
 
 	while (i < 6)
 	{
-		tmp = ft_strjoin(fmt, fld[i]);
+		tmp = str_join(fmt, fld[i]);
 		while(j < 5)
 		{
-			tmp2 = ft_strjoin(tmp, acc[j]);
-			fmt_c = ft_strjoin(tmp2, "c");
+			tmp2 = str_join(tmp, acc[j]);
+			fmt_c = str_join(tmp2, "c");
 			free(tmp2);
 			printf("%s[d = %d],\t", fmt_c, c);
 			fflush(stdout);
@@ -88,11 +104,11 @@ void	ft_printf_tester_po(char *fmt, unsigned long p, int flg)
 
 	while (i < 6)
 	{
-		tmp = ft_strjoin(fmt, fld[i]);
+		tmp = str_join(fmt, fld[i]);
 		while(j < 5)
 		{
-			tmp2 = ft_strjoin(tmp, acc[j]);
-			fmt_c = ft_strjoin(tmp2, "p");
+			tmp2 = str_join(tmp, acc[j]);
+			fmt_c = str_join(tmp2, "p");
 			free(tmp2);
 			printf("%s[d = %ld],\t", fmt_c, p);
 			fflush(stdout);
@@ -123,11 +139,11 @@ void	ft_printf_tester_hex(char *fmt, long long p, int flg)
 
 	while (i < 6)
 	{
-		tmp = ft_strjoin(fmt, fld[i]);
+		tmp = str_join(fmt, fld[i]);
 		while(j < 5)
 		{
-			tmp2 = ft_strjoin(tmp, acc[j]);
-			fmt_c = ft_strjoin(tmp2, "x");
+			tmp2 = str_join(tmp, acc[j]);
+			fmt_c = str_join(tmp2, "x");
 			free(tmp2);
 			printf("%s[x = %lld],\t", fmt_c, p);
 			fflush(stdout);
@@ -158,11 +174,11 @@ void	ft_printf_tester_hex2(char *fmt, long long p, int flg)
 
 	while (i < 6)
 	{
-		tmp = ft_strjoin(fmt, fld[i]);
+		tmp = str_join(fmt, fld[i]);
 		while(j < 5)
 		{
-			tmp2 = ft_strjoin(tmp, acc[j]);
-			fmt_c = ft_strjoin(tmp2, "X");
+			tmp2 = str_join(tmp, acc[j]);
+			fmt_c = str_join(tmp2, "X");
 			free(tmp2);
 			printf("%s[x = %lld],\t", fmt_c, p);
 			fflush(stdout);
@@ -193,11 +209,11 @@ void	ft_printf_tester_u(char *fmt, unsigned int u, int flg)
 
 	while (i < 6)
 	{
-		tmp = ft_strjoin(fmt, fld[i]);
+		tmp = str_join(fmt, fld[i]);
 		while(j < 5)
 		{
-			tmp2 = ft_strjoin(tmp, acc[j]);
-			fmt_u = ft_strjoin(tmp2, "u");
+			tmp2 = str_join(tmp, acc[j]);
+			fmt_u = str_join(tmp2, "u");
 			free(tmp2);
 			printf("%s[u = %d],\t", fmt_u, u);
 			fflush(stdout);
@@ -228,11 +244,11 @@ void	ft_printf_tester_str(char *fmt, char *str, int flg)
 
 	while (i < 6)
 	{
-		tmp = ft_strjoin(fmt, fld[i]);
+		tmp = str_join(fmt, fld[i]);
 		while(j < 5)
 		{
-			tmp2 = ft_strjoin(tmp, acc[j]);
-			fmt_s = ft_strjoin(tmp2, "s");
+			tmp2 = str_join(tmp, acc[j]);
+			fmt_s = str_join(tmp2, "s");
 			free(tmp2);
 			printf("%s[s = %s],\t", fmt_s, str);
 			fflush(stdout);
@@ -290,8 +306,8 @@ void	ft_printf_combn_rec(int	n, int	depth, int	val, int flg)
 	if (depth == n)
 	{
 		g_num[n] = 0;
-		ft_printf_tester(ft_strjoin("%", g_num), flg);
-		if (n == 1 && val == (int)ft_strlen(flag))
+		ft_printf_tester(str_join("%", g_num), flg);
+		if (n == 1 && val == (int)strlen(flag))
 			ft_printf_tester(ft_strdup("%"), flg);
 		return ;
 	}
