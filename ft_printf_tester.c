@@ -9,7 +9,7 @@
 static char	g_num[10];
 char		*flag = "#0+ -";
 char		acc[6][4] = { "" , "." , ".0" , ".1", ".10", ".15"};
-char		fld[5][3] = { "" , "0" , "1", "10", "15"};
+char		fld[8][3] = { "" , "0" , "1", "3", "6", "7", "10", "15"};
 
 char	*str_join(const char* s1, const char* s2)
 {
