@@ -8,7 +8,7 @@
 
 static char	g_num[10];
 char		*flag = "#0+ -";
-char		acc[6][4] = { "" , "." , ".0" , ".1", ".10", ".15"};
+char		acc[7][4] = { "" , "." , ".0" , ".1", ".3", ".10", ".15"};
 char		fld[8][3] = { "" , "0" , "1", "3", "6", "7", "10", "15"};
 
 char	*str_join(const char* s1, const char* s2)
@@ -288,7 +288,7 @@ void	ft_printf_tester_str(char *fmt, char *str, int flg)
 void	ft_printf_tester(char *fmt, int flg)
 {
 	int testd[] = {-1 , 0 , 1, 100, INT_MAX, INT_MIN};
-	int testc[] = {'0', '0' - 256, '0' + 256, ' ', '1', '2', '3', 'a'};
+	int testc[] = {0 ,'0', '0' - 256, '0' + 256, ' ', '1', '2', '3', 'a'};
 	unsigned long testp[] = {-1, 1, 15, 16, 17, LONG_MIN, LONG_MAX, INT_MIN, INT_MAX, ULONG_MAX, -ULONG_MAX, 0};
 	long long	testx[] = {-100, -1, 1, 15, 16, 17, 99, 100, LONG_MIN, LONG_MAX, INT_MIN, INT_MAX, ULONG_MAX, -ULONG_MAX, 0, 9223372036854775807LL};
 	char		tests[6][3] = {"" , "0" , "1", "10", "15"};
