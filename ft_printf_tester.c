@@ -84,10 +84,10 @@ void	ft_printf_tester_char(char *fmt, char c, int flg)
 	size_t		i = 0;
 	size_t		j = 0;
 
-	while (i < 6)
+	while (i <= 8)
 	{
 		tmp = str_join(fmt, fld[i]);
-		while(j < 5)
+		while(j <= 7)
 		{
 			tmp2 = str_join(tmp, acc[j]);
 			fmt_c = str_join(tmp2, "c");
@@ -119,10 +119,10 @@ void	ft_printf_tester_po(char *fmt, unsigned long p, int flg)
 	size_t		i = 0;
 	size_t		j = 0;
 
-	while (i < 6)
+	while (i <= 8)
 	{
 		tmp = str_join(fmt, fld[i]);
-		while(j < 5)
+		while(j <= 7)
 		{
 			tmp2 = str_join(tmp, acc[j]);
 			fmt_c = str_join(tmp2, "p");
@@ -154,10 +154,10 @@ void	ft_printf_tester_hex(char *fmt, long long p, int flg)
 	size_t		i = 0;
 	size_t		j = 0;
 
-	while (i < 6)
+	while (i <= 8)
 	{
 		tmp = str_join(fmt, fld[i]);
-		while(j < 5)
+		while(j <= 7)
 		{
 			tmp2 = str_join(tmp, acc[j]);
 			fmt_c = str_join(tmp2, "x");
@@ -189,10 +189,10 @@ void	ft_printf_tester_hex2(char *fmt, long long p, int flg)
 	size_t		i = 0;
 	size_t		j = 0;
 
-	while (i < 6)
+	while (i <= 8)
 	{
 		tmp = str_join(fmt, fld[i]);
-		while(j < 5)
+		while(j <= 7)
 		{
 			tmp2 = str_join(tmp, acc[j]);
 			fmt_c = str_join(tmp2, "X");
@@ -224,10 +224,10 @@ void	ft_printf_tester_u(char *fmt, unsigned int u, int flg)
 	size_t		i = 0;
 	size_t		j = 0;
 
-	while (i < 6)
+	while (i <= 8)
 	{
 		tmp = str_join(fmt, fld[i]);
-		while(j < 5)
+		while(j <= 7)
 		{
 			tmp2 = str_join(tmp, acc[j]);
 			fmt_u = str_join(tmp2, "u");
@@ -259,10 +259,10 @@ void	ft_printf_tester_str(char *fmt, char *str, int flg)
 	size_t		i = 0;
 	size_t		j = 0;
 
-	while (i < 6)
+	while (i <= 8)
 	{
 		tmp = str_join(fmt, fld[i]);
-		while(j < 5)
+		while(j <= 7)
 		{
 			tmp2 = str_join(tmp, acc[j]);
 			fmt_s = str_join(tmp2, "s");
