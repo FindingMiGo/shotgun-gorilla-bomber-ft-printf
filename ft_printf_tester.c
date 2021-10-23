@@ -49,10 +49,10 @@ void	ft_printf_tester_int(char *fmt, int d, int flg)
 	size_t		i = 0;
 	size_t		j = 0;
 
-	while (i < 6)
+	while (i <= 8)
 	{
 		tmp = str_join(fmt, fld[i]);
-		while(j < 5)
+		while(j <= 7)
 		{
 			tmp2 = str_join(tmp, acc[j]);
 			fmt_d = str_join(tmp2, "d");
