@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  self-test:
+    name: Self-test (tester vs system printf)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: tester
+      - name: Create printf stub
+        run: |
+          cat <<'EOF' > ft_printf.h
+          #ifndef FT_PRINTF_H
+          # define FT_PRINTF_H
+          # include <stdio.h>
+          # define ft_printf printf
+          #endif
+          EOF
+      - name: Build and run
+        run: |
+          cd tester
+          gcc -Wall -Wextra -Werror ft_printf_tester.c -o sgb_tester
+          ./sgb_tester
+
+  ft-printf-test:
+    name: Test against ft_printf
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: FindingMiGo/ft_printf
+          path: ft_printf
+          submodules: recursive
+      - name: Build ft_printf
+        run: make -C ft_printf
+      - name: Checkout tester
+        uses: actions/checkout@v4
+        with:
+          path: ft_printf/tester
+      - name: Run tester
+        run: |
+          cd ft_printf/tester
+          bash ft_printf_tester.sh

@@ -231,7 +231,7 @@ int	main(void)
 {
 	int	n;
 
-	fprintf(stderr, "\n" C_BOLD "  kso_tester" C_RESET
+	fprintf(stderr, "\n" C_BOLD "  Shotgun Gorilla Bomber" C_RESET
 		C_DIM " — exhaustive ft_printf tester" C_RESET "\n\n");
 	test_all_values("");
 	n = 1;
